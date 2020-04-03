@@ -29,12 +29,12 @@ namespace Terminal
         /// <param name="input">Ham, parçalanmamış ve yorumlanmamış metin</param>
         public virtual void GetCommand(string input)
         {
-            throw new NotImplementedException($"Subroutine \"{SubroutineName}\" contains a GetCommand() method which was not implemented by the developer.");
+            throw new NotImplementedException(string.Format("Subroutine \"{0}\" contains a GetCommand() method which was not implemented by the developer.", SubroutineName));
         }
 
         public virtual void ExecuteCommand(string command, string[] arguments)
         {
-            throw new NotImplementedException($"Subroutine \"{SubroutineName}\" contains a ExecuteCommand() method which was not implemented by the developer.");
+            throw new NotImplementedException(string.Format("Subroutine \"{0}\" contains a ExecuteCommand() method which was not implemented by the developer.", SubroutineName));
         }
 
         public static bool CheckForMatch(string checkThis, string[] inHere)

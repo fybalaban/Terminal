@@ -8,28 +8,36 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Terminal</RootNamespace>
     <AssemblyName>Terminal</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>output\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>7</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>output\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>7</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>Terminal.Program</StartupObject>
@@ -57,7 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Flow.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Subroutine.cs" />
+    <Compile Include="Subroutines\Clock.cs" />
     <Compile Include="Subroutines\ConsoleBasedTextEditor.cs" />
     <Compile Include="TerminalForm.cs">
       <SubType>Form</SubType>
@@ -70,6 +80,7 @@
     <Compile Include="Interpreter.cs" />
     <EmbeddedResource Include="TerminalForm.resx">
       <DependentUpon>TerminalForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -79,7 +90,10 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include=".editorconfig" />
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -91,7 +105,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="kisspng-computer-icons-computer-terminal-command-5ae16a50611156.2269332715247222563976.ico" />
+    <None Include="Resources\kisspng-computer-icons-computer-terminal-command-5ae16a50611156.2269332715247222563976.png" />
     <Content Include="terminal.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
